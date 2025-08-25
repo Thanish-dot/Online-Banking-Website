@@ -1,6 +1,6 @@
 // App.jsx
 import React from "react";
-import { createBrowserRouter, RouterProvider, Outlet, useNavigate } from "react-router-dom";
+import { createHashRouter, RouterProvider, Outlet, useNavigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { AccountProvider } from "./context/AccountContext";
 import { TransactionProvider, TransactionContext } from "./context/TransactionContext";
@@ -63,7 +63,8 @@ function Layout() {
 }
 
 // ================= Routes =================
-const router = createBrowserRouter([
+const router = createHashRouter([
+
   {
     path: "/",
     element: <Layout />,
