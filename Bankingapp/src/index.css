@@ -1,0 +1,77 @@
+/* --- Reset and Global Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #0d47a1; /* Deep Blue */
+  --secondary-color: #1976d2; /* Lighter Blue */
+  --accent-color: #f9a825; /* Yellow/Gold Accent */
+  --light-bg: #f4f6f8; /* Light gray background */
+  --white-color: #ffffff;
+  --text-dark: #333333;
+  --text-light: #f1f1f1;
+  --border-color: #dddddd;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input, button, textarea {
+  font-family: inherit;
+  border-radius: 5px;
+}
+
+main {
+  padding-top: 135px; /* Adjust based on new navbar height */
+  padding-bottom: 2rem;
+  min-height: calc(100vh - 80px); /* Full height minus footer */
+}
+/* ================= Responsive Media Queries for Global Styles ================= */
+
+/* Tablet view (max-width: 768px) */
+@media (max-width: 768px) {
+  main {
+    padding-top: 110px; /* Adjust for smaller navbar */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  body {
+    font-size: 0.95rem;
+  }
+
+  input, button, textarea {
+    font-size: 0.95rem;
+    border-radius: 4px;
+  }
+}
+
+/* Mobile view (max-width: 480px) */
+@media (max-width: 480px) {
+  main {
+    padding-top: 90px; /* Navbar smaller on mobile */
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    padding-bottom: 1.5rem;
+  }
+
+  body {
+    font-size: 0.9rem;
+  }
+
+  input, button, textarea {
+    font-size: 0.9rem;
+    border-radius: 3px;
+  }
+}

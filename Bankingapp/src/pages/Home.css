@@ -1,0 +1,372 @@
+/* ======================================
+   Landscape Banking Dashboard - Home.css
+   ====================================== */
+:root {
+  --primary-blue: #0a3d91;
+  --secondary-blue: #1565c0;
+  --accent-green: #2e7d32;
+  --accent-red: #c62828;
+  --text-dark: #1a1a1a;
+  --text-light: #6c757d;
+  --card-bg: #ffffff;
+  --border-gray: #e0e0e0;
+  --bg-gray: #f4f6f9;
+  --hover-bg: #f0f4ff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: var(--bg-gray);
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Container */
+.home-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 40px 25px;
+}
+
+/* Header with typing animation */
+.welcome-header h1 {
+  font-size: clamp(36px, 6vw, 75px); /* responsive font size */
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 35px;
+  text-align: center;
+  letter-spacing: 0.5px;
+
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  margin: 0 auto;
+  animation: typing 4s steps(30, end) forwards;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+
+/* Keyframes for cursor blink */
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+
+/* Quick Links */
+.quick-links {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.quick-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card-bg);
+  border: 2px solid var(--border-gray);
+  padding: 16px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.quick-link svg {
+  font-size: 20px;
+}
+
+.quick-link:hover {
+  background: var(--hover-bg);
+  transform: translateY(-4px);
+}
+
+/* Accounts Section */
+.accounts-section h2,
+.transactions-section h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: var(--text-dark);
+  border-left: 6px solid var(--primary-blue);
+  padding-left: 12px;
+}
+
+/* Landscape grid */
+.accounts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Landscape account card */
+.account-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 25px 30px;
+  box-shadow: var(--shadow);
+  border-left: 6px solid var(--secondary-blue);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 130px;
+}
+
+.account-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Left side (title + type + number) */
+.account-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.account-header h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--primary-blue);
+}
+
+.account-type {
+  font-size: 13px;
+  padding: 5px 12px;
+  background: var(--hover-bg);
+  color: var(--primary-blue);
+  border-radius: 16px;
+  font-weight: 600;
+}
+
+.account-number {
+  font-family: "Roboto Mono", monospace;
+  font-size: 15px;
+  color: var(--text-light);
+  margin-top: 10px;
+}
+
+/* Right side (balance) */
+.account-balance {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--secondary-blue);
+  text-align: right;
+  min-width: 240px;
+}
+
+/* Transactions Table */
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.transactions-table th {
+  background: var(--primary-blue);
+  color: #fff;
+  text-align: left;
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.transactions-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-gray);
+  font-size: 16px;
+}
+
+.transactions-table tr:last-child td {
+  border-bottom: none;
+}
+
+.debit {
+  color: var(--accent-red);
+  font-weight: 700;
+}
+
+.credit {
+  color: var(--accent-green);
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .quick-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .quick-link {
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .account-card {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: auto;
+  }
+
+  .account-balance {
+    text-align: left;
+    margin-top: 12px;
+    min-width: auto;
+  }
+
+  .transactions-table th,
+  .transactions-table td {
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+}
+.home-search-form {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto; /* Increased margin for better spacing */
+  max-width: 600px; /* Increased max-width */
+  position: relative;
+}
+
+.home-search-input {
+  flex: 1;
+  padding: 1rem 3rem 1rem 1.5rem; /* Increased padding, right padding for icon */
+  border: 2px solid #ddd; /* Thicker border */
+  border-radius: 30px; /* Rounded corners */
+  outline: none;
+  font-size: 1.1rem; /* Larger font size */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.3s ease;
+}
+
+.home-search-input:focus {
+  border-color: var(--primary-color); /* Change border color on focus */
+  box-shadow: 0 2px 15px rgba(26, 115, 232, 0.2); /* Enhanced shadow on focus */
+}
+
+.home-search-button {
+  position: absolute;
+  right: 8px; /* Position inside the input */
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 0.75rem;
+  cursor: pointer;
+  color: #666; /* Default icon color */
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.home-search-button:hover {
+  background-color: var(--primary-color); /* Background on hover */
+  color: white; /* Icon color on hover */
+}
+
+/* Remove the old styles for the separate button */
+.home-search-form .home-search-button {
+  padding: 0.75rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.home-search-form .home-search-button:hover {
+  background-color: var(--primary-dark);
+}
+/* Background image with subtle zoom animation */
+.home-container {
+  position: relative; /* ensure animation works properly */
+  background: url('../src/images/bank-bg.jpg') no-repeat center center/cover;
+  
+  overflow: hidden;
+  animation: bgZoom 40s ease-in-out infinite alternate;
+}
+
+/* Subtle zoom-in and zoom-out animation */
+@keyframes bgZoom {
+  0% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.05) translateY(-10px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+/* Optional overlay for better readability of text */
+.home-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.2); /* light overlay */
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .home-container {
+    padding: 25px 15px;
+    background-size: cover;
+  }
+
+  .welcome-header h1 {
+    font-size: clamp(28px, 5vw, 50px);
+  }
+
+  .accounts-grid {
+    gap: 20px;
+  }
+
+  .transactions-table th,
+  .transactions-table td {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-header h1 {
+    font-size: 24px;
+  }
+
+  .home-search-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .home-search-input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .home-search-button {
+    position: relative;
+    transform: none;
+    width: 100%;
+  }
+
+  .quick-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .accounts-grid {
+    flex-direction: column;
+  }
+}

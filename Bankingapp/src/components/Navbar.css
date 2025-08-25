@@ -1,0 +1,245 @@
+/* Navbar.css */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white-color);
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Top Bar --- */
+.top-bar {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.top-bar .container {
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+
+.top-bar a {
+  color: var(--text-light);
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.top-bar a:hover {
+  opacity: 1;
+}
+
+/* --- Middle Bar --- */
+.middle-bar {
+  padding: 1rem 0;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* --- Main Navigation --- */
+.main-nav {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.main-nav a {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  padding: 10px 0;
+  position: relative;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--accent-color);
+  transition: width 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--primary-color);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+
+/* --- Search and Auth --- */
+.search-and-auth {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  font-size: 0.9rem;
+}
+
+.search-bar button {
+  padding: 8px 12px;
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+}
+
+.login-btn {
+  padding: 8px 20px;
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.login-btn:hover {
+  background-color: #0b3c85;
+}
+
+/* Active link styling */
+.main-nav a.active {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.main-nav a.active::after {
+  width: 100%;
+}
+/* -------------------------
+   Responsive Navbar
+   ------------------------- */
+
+/* Tablet view (max-width: 768px) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .search-and-auth {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .top-bar .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+/* Mobile view (max-width: 480px) */
+@media (max-width: 480px) {
+  /* Navbar fixed full width */
+  .main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* full viewport width */
+    z-index: 2000; /* above all other content */
+    padding: 0; /* remove extra padding */
+  }
+
+  /* Container stretches full width */
+  .container {
+    max-width: 100%; /* override max-width */
+    width: 100%;
+    padding: 0.5rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Middle bar and nav stack vertically */
+  .middle-bar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .main-nav a {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+
+  /* Search and auth full width */
+  .search-and-auth {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .search-bar input,
+  .search-bar button,
+  .login-btn {
+    width: 100%;
+  }
+
+  /* Push page content below navbar */
+  body, .app-container {
+    padding-top: 150px; /* adjust according to total navbar height */
+  }
+}
