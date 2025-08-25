@@ -1,6 +1,7 @@
 {
   "name": "react",
   "private": true,
+  "homepage": "https://thanish-dot.github.io/Online-Banking-Website/"
   "version": "0.0.0",
   "type": "module",
   "scripts": {
