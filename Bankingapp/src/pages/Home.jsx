@@ -1,29 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaArrowRight, FaRupeeSign, FaSearch } from 'react-icons/fa';
-import { TransactionContext } from '../context/TransactionContext'; // <-- import context
+import { TransactionContext } from '../context/TransactionContext';
 import './Home.css';
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
-
-  // Use transaction context
   const { transactions, addTransaction } = useContext(TransactionContext);
 
   const accounts = [
-    {
-      type: "Savings",
-      title: "Primary Savings Account",
-      number: "XXXX XXXX XXXX 1234",
-      balance: "5,40,250.75"
-    },
-    {
-      type: "Credit", 
-      title: "Nexus Platinum Card",
-      number: "XXXX XXXX XXXX 5678",
-      balance: "Available: 1,50,000.00"
-    }
+    { type: "Savings", title: "Primary Savings Account", number: "XXXX XXXX XXXX 1234", balance: "5,40,250.75" },
+    { type: "Credit", title: "Nexus Platinum Card", number: "XXXX XXXX XXXX 5678", balance: "Available: 1,50,000.00" }
   ];
 
   const handleSearch = (e) => {
@@ -34,13 +22,21 @@ function Home() {
     }
   };
 
-  // Example handlers for actions to update transactions
   const handleFundTransfer = () => addTransaction('Fund Transfer', -5000);
   const handleBillPayment = () => addTransaction('Electricity Bill', -1500);
   const handleUpiPayment = () => addTransaction('UPI Payment', -2000);
 
   return (
     <div className="home-container">
+
+      {/* Banner Slider */}
+      <div className="home-banner">
+        <div className="slide slide1"></div>
+        <div className="slide slide2"></div>
+        <div className="slide slide3"></div>
+        <div className="slide slide4"></div>
+      </div>
+
       <header className="welcome-header">
         <h1>Welcome back, Mohammed</h1>
         <form onSubmit={handleSearch} className="home-search-form">
@@ -113,6 +109,7 @@ function Home() {
           </tbody>
         </table>
       </section>
+
     </div>
   );
 }

@@ -298,10 +298,7 @@ body {
 /* Background image with subtle zoom animation */
 .home-container {
   position: relative; /* ensure animation works properly */
-  background: url('../src/images/bank-bg.jpg') no-repeat center center/cover;
-  
-  overflow: hidden;
-  animation: bgZoom 40s ease-in-out infinite alternate;
+  background: url('/images/bank-bg.jpg') no-repeat center center/cover;
 }
 
 /* Subtle zoom-in and zoom-out animation */
@@ -370,3 +367,58 @@ body {
     flex-direction: column;
   }
 }
+        /* Full-width banner */
+        .home-banner {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            height: 30vh;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: fade 16s infinite;
+        }
+        
+        .slide1 { 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/bank.jpg'); 
+            animation-delay: 0s; 
+        }
+        
+        .slide2 { 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'); 
+            animation-delay: 4s; 
+        }
+        
+        .slide3 { 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1583753075960-4a2c53d83550?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'); 
+            animation-delay: 8s; 
+        }
+        
+        .slide4 { 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'); 
+            animation-delay: 12s; 
+        }
+        
+        @keyframes fade {
+            0% { opacity: 0; }
+            5% { opacity: 1; }
+            25% { opacity: 1; }
+            30% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+        
+       

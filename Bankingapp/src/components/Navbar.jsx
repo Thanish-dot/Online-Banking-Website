@@ -1,12 +1,14 @@
-// Navbar.js
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { FaUniversity, FaUser, FaSearch } from 'react-icons/fa';
+import { FaUniversity, FaUser, FaSearch, FaBars } from 'react-icons/fa';
 import "./Navbar.css";
 
 function Navbar() {
   const { user, logout } = useAuth();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
     <header className="main-header">
@@ -26,7 +28,13 @@ function Navbar() {
               <span>Nexus Bank</span>
             </Link>
           </div>
-          <nav className="main-nav">
+
+          {/* Hamburger icon for mobile */}
+          <div className="hamburger-menu" onClick={toggleMenu}>
+            <FaBars size={20} />
+          </div>
+
+          <nav className={`main-nav ${menuOpen ? 'active' : ''}`}>
             <NavLink to="/">Personal</NavLink>
             <NavLink to="/upi-payment">UPI Payment</NavLink>
             <NavLink to="/investments">Investments</NavLink>

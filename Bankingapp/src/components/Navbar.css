@@ -243,3 +243,28 @@
     padding-top: 150px; /* adjust according to total navbar height */
   }
 }
+/* Hamburger icon - mobile only */
+.hamburger-menu {
+  display: none; /* hidden by default */
+  cursor: pointer;
+  margin-left: auto; /* push to right */
+}
+
+/* Show hamburger only in mobile */
+@media (max-width: 480px) {
+  .hamburger-menu {
+    display: block;
+  }
+
+  /* Hide nav by default on mobile */
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Show nav when active */
+  .main-nav.active {
+    display: flex;
+  }
+}
